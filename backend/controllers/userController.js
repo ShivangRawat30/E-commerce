@@ -228,7 +228,7 @@ exports.updateRole = catchAsyncErrors(async (req, res, next) => {
 // Delete user --admin
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
   // we will remove cloudinary later
-  const user = await User.findByIdAndUpdate(req.user.id);
+  const user = await User.findByIdAndDelete(req.params.id);
 
   if (!user) {
     return next(
@@ -236,9 +236,8 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  await user.remove();
-
   res.status(200).json({
     success: true,
+    message: "User deleted successfully",
   });
 });
