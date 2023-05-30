@@ -17,6 +17,7 @@ router.route("/product/new").post(isAuthenticatedUser, createProduct);
 router
   .route("/product/:id")
   .put(isAuthenticatedUser, updateProduct)
-  .delete(isAuthenticatedUser, deleteProduct)
-  .get(getProductDetails);
+  .delete(isAuthenticatedUser, deleteProduct);
+
+router.route("/product/:id/").get(getProductDetails);
 module.exports = router;
