@@ -1,0 +1,106 @@
+footer {
+    margin-top: 10vmax;
+    padding: 2vmax;
+    background-color: rgb(34, 33, 33);
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .leftFooter {
+    width: 20%;
+    display: flex;
+  
+    flex-direction: column;
+    align-items: center;
+  }
+  .leftFooter > h4 {
+    font-family: "Roboto";
+    font-size: 1vmax;
+  }
+  .leftFooter > p {
+    text-align: center;
+    font-size: 1.2vmax;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  .leftFooter > img {
+    width: 10vmax;
+    margin: 1vmax;
+    cursor: pointer;
+  }
+  
+  .midFooter {
+    width: 60%;
+  
+    text-align: center;
+  }
+  
+  .midFooter > h1 {
+    font-size: 4vmax;
+    font-family: "Roboto";
+    color: #eb4034;
+  }
+  .midFooter > p {
+    max-width: 60%;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    margin: 1vmax auto;
+  }
+  
+  .rightFooter {
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .rightFooter > a:hover {
+    color: #eb4034;
+  }
+
+  .logos {
+margin: 20px;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 15%;
+
+  }
+  #instagram:hover{
+    color:#E4405F
+  }
+  #linkedin:hover{
+    color:#0072b1
+  }
+  #twitter:hover{
+    color:#1DA1F2
+  }
+
+  @media (max-width: 492px) {
+    .leftFooter h4{
+      font-size: 0.4rem;
+    }
+    .leftFooter p{
+      font-size: 0.4rem;
+    }
+    .leftFooter img{
+      width:4rem
+    }
+    .midFooter h1{
+      font-size: 1.5rem;
+    }
+    .midFooter p{
+      font-size: 0.5rem;
+    }
+    #footer{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .logos{
+      margin: 0;
+      width: 20%;
+    }
+
+  }
