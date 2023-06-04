@@ -16,8 +16,9 @@ const App = () => {
   return (
     <Router>
       <Header />
-
-      <Route extact path="/" component={Home} />
+      <Routes>
+        <Route extact path="/" element={<Home />} />
+      </Routes>
 
       <Footer />
     </Router>
