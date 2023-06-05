@@ -11,6 +11,7 @@ import ReviewCard from './ReviewCard.js';
 import Loader from '../layout/loader/Loader';
 import { useAlert } from 'react-alert';
 import MetaData from '../layout/MetaData';
+import ReactStars from 'react-rating-stars-component';
 // import {
 //   Dialog,
 //   DialogActions,
@@ -34,6 +35,7 @@ const ProductDetails = () => {
     }
     dispatch(getProductDetails(params.id));
   }, [dispatch, params.id, error, alert]);
+
   const options = {
     size: 'large',
     value: product.ratings,
@@ -69,7 +71,7 @@ const ProductDetails = () => {
                 <p>Product # {product._id}</p>
               </div>
               <div className="detailsBlock-2">
-                {/* <Rating {...options} /> */}
+                <ReactStars {...options} />
                 <span className="detailsBlock-2-span">
                   {' '}
                   ({product.numOfReviews} Reviews)
@@ -79,19 +81,17 @@ const ProductDetails = () => {
                 <h1>{`₹${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
-                    <button >-</button>
-                    <input readOnly type="number"  />
-                    <button >+</button>
-                  </div>
-                  <button
-                    disabled={product.Stock < 1 ? true : false}
-                  >
+                    <button>-</button>
+                    <input value="1" type="number" />
+                    <button>+</button>
+                  </div>{' '}
+                  <button disabled={product.Stock < 1 ? true : false}>
                     Add to Cart
                   </button>
                 </div>
 
                 <p>
-                  Status:
+                  Status:{' '}
                   <b className={product.Stock < 1 ? 'redColor' : 'greenColor'}>
                     {product.Stock < 1 ? 'OutOfStock' : 'InStock'}
                   </b>
@@ -102,9 +102,7 @@ const ProductDetails = () => {
                 Description : <p>{product.description}</p>
               </div>
 
-              <button  className="submitReview">
-                Submit Review
-              </button>
+              <button className="submitReview">Submit Review</button>
             </div>
           </div>
 
