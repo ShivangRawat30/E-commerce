@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const {
   getAllProducts,
   createProduct,
@@ -8,25 +8,23 @@ const {
   createProductReview,
   getProductReviews,
   deleteReview,
-} = require("../controllers/productController");
-const { isAuthenticatedUser, authrizeRoles } = require("../middleware/auth");
+} = require('../controllers/productController');
+const { isAuthenticatedUser, authrizeRoles } = require('../middleware/auth');
 
 const router = express.Router();
 
+router.route('/products').get(getAllProducts);
+router.route('/product/new').post(isAuthenticatedUser, createProduct);
 router
-  .route("/products")
-  .get(isAuthenticatedUser, authrizeRoles("admin"), getAllProducts);
-router.route("/product/new").post(isAuthenticatedUser, createProduct);
-router
-  .route("/product/:id")
+  .route('/product/:id')
   .put(isAuthenticatedUser, updateProduct)
   .delete(isAuthenticatedUser, deleteProduct);
 
-router.route("/product/:id/").get(getProductDetails);
+router.route('/product/:id/').get(getProductDetails);
 
-router.route("/review").put(isAuthenticatedUser, createProductReview);
+router.route('/review').put(isAuthenticatedUser, createProductReview);
 router
-  .route("/reviews")
+  .route('/reviews')
   .get(getProductReviews)
   .delete(isAuthenticatedUser, deleteReview);
 
