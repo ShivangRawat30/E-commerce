@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WebFont from 'webfontloader';
 import Home from './component/home/Home.js';
 import ProductDetails from './component/product/ProductDetails';
+import ProductPage from './component/product/ProductPage';
+import Search from './component/product/Search'
+import Navbar from './component/layout/header/Navbar';
 
 const App = () => {
   React.useEffect(() => {
@@ -16,10 +19,13 @@ const App = () => {
   });
   return (
     <Router>
-      <Header />
+      <Navbar />
       <Routes>
         <Route extact path="/" element={<Home />} />
         <Route extact path="/product/:id" element={<ProductDetails />} />
+        <Route extact path="/products" element={<ProductPage />} />
+        <Route extact path="/search" element={<Search />} />
+        
       </Routes>
 
       <Footer />

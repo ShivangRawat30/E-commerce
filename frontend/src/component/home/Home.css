@@ -1,9 +1,9 @@
 .banner {
-    background-image: url("../../images/cover.jfif");
+    background-image: url("https://images.unsplash.com/photo-1467779009031-53938b78ca38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vmin;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -12,19 +12,20 @@
     color: white;
   }
   
-  .banner > h1 {
+  /* .banner > h1 {
     margin: 5vmax;
   
     font: 600 2.5vmax "Roboto";
-  }
+  } */
   
-  .banner > p {
+  /* .banner > p {
     font: 300 1.4vmax "Lucida Sans";
   }
-  
-  .banner > a > button {
+   */
+  /* .banner > a > button {
     margin-bottom: 5vmax;
     cursor: pointer;
+    color: black;
     background-color: white;
     border: 1px solid white;
     border-radius: 0;
@@ -32,7 +33,7 @@
     transition: all 0.5s;
     width: 9vmax;
     font: 500 1vmax "Roboto";
-  }
+  } */
   .banner > a > button:hover {
     background-color: rgba(255, 255, 255, 0);
     color: white;
@@ -42,7 +43,7 @@
     content: "";
     width: 100vw;
     height: 100vmin;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     position: absolute;
     top: 0%;
     left: 0;
