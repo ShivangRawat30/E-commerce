@@ -1,48 +1,71 @@
 import React from "react";
-import playStore from "../../../images/playstore.png";
-import appStore from "../../../images/Appstore.png";
-import "./Footer.css";
 import {
-  AiOutlineInstagram,
-  AiFillLinkedin,
-  AiOutlineTwitter,
-} from "react-icons/ai";
+  FaDribbbleSquare,
+  FaFacebookSquare,
+  FaGithubSquare,
+  FaInstagram,
+  FaTwitterSquare,
+} from "react-icons/fa";
+import Logo from "../../assets/logo.png"
 
 const Footer = () => {
   return (
-    <footer id="footer">
-      <div className="leftFooter">
-        <h4>DOWNLOAD OUR APP</h4>
-        <p>Download App for Android and IOS mobile phone</p>
-        <img src={playStore} alt="playstore" />
-        <img src={appStore} alt="Appstore" />
+    <div className="w-[100%] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300 bg-black">
+      <div>
+        <img src={Logo} className='w-[150px] ml-[95px] lg:ml-[10px]'/>
+        <p className="py-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+          natus voluptatibus eum praesentium debitis ut. Maiores vel sint
+          voluptatem aut.
+        </p>
+        <div className="flex justify-between md:w-[75%] my-6">
+          <FaFacebookSquare size={30} />
+          <FaInstagram size={30} />
+          <FaTwitterSquare size={30} />
+          <FaGithubSquare size={30} />
+          <FaDribbbleSquare size={30} />
+        </div>
       </div>
 
-      <div className="midFooter">
-        <h1>ECOMMERCE.</h1>
-        <p>High Quality is our first priority</p>
-
-        <p>Copyrights 2023 &copy; ShivangRawat</p>
+      <div className="lg:col-span-2 flex justify-between mt-6">
+        <div>
+          <h6 className="font-medium text-gray-400">Solutions</h6>
+          <ul>
+            <li className="py-2 text-sm">Analytics</li>
+            <li className="py-2 text-sm">Marketing</li>
+            <li className="py-2 text-sm">Commerce</li>
+            <li className="py-2 text-sm">Insights</li>
+          </ul>
+        </div>
+        <div>
+          <h6 className="font-medium text-gray-400">Support</h6>
+          <ul>
+            <li className="py-2 text-sm">Pricing</li>
+            <li className="py-2 text-sm">Documentation</li>
+            <li className="py-2 text-sm">Guides</li>
+            <li className="py-2 text-sm">API Status</li>
+          </ul>
+        </div>
+        <div>
+          <h6 className="font-medium text-gray-400">Company</h6>
+          <ul>
+            <li className="py-2 text-sm">About</li>
+            <li className="py-2 text-sm">Blog</li>
+            <li className="py-2 text-sm">Jobs</li>
+            <li className="py-2 text-sm">Press</li>
+            <li className="py-2 text-sm">Careers</li>
+          </ul>
+        </div>
+        <div>
+          <h6 className="font-medium text-gray-400 mr-[10px]">Legal</h6>
+          <ul>
+            <li className="py-2 text-sm">Claim</li>
+            <li className="py-2 text-sm">Policy</li>
+            <li className="py-2 text-sm">Terms</li>
+          </ul>
+        </div>
       </div>
-
-      <div className="rightFooter">
-        <AiOutlineInstagram
-          className="logos"
-          id="instagram"
-          href="http://instagram.com/shivangrawat__"
-        />
-        <AiFillLinkedin
-          className="logos"
-          id="linkedin"
-          href="https://www.linkedin.com/in/shivangrawat30/"
-        />
-        <AiOutlineTwitter
-          className="logos"
-          id="twitter"
-          href="https://twitter.com/shivangrawaat"
-        />
-      </div>
-    </footer>
+    </div>
   );
 };
 
