@@ -52,7 +52,7 @@ const ProductDetails = () => {
           <MetaData title={`${product.name} -- ECOMMERCE`} />
           <div className="ProductDetails mt-[70px]">
             <div>
-              <Carousel>
+              <Carousel className="mx-8">
                 {product.images &&
                   product.images.map((item, i) => (
                     <img
@@ -66,26 +66,25 @@ const ProductDetails = () => {
             </div>
 
             <div>
-              <div className="detailsBlock-1">
-                <h2>{product.name}</h2>
-                <p>Product # {product._id}</p>
+              <div className="detailsBlock-1 mb-4">
+                <h2 className="text-xl lg:text-4xl">{product.name}</h2>
               </div>
               <div className="detailsBlock-2">
-                <ReactStars {...options} />
-                <span className="detailsBlock-2-span">
+                <ReactStars {...options} classNames="mr-2" />
+                <span className="detailsBlock-2-span ml-2">
                   {' '}
                   ({product.numOfReviews} Reviews)
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1>{`₹${product.price}`}</h1>
+                <h1 className='lg:text-3xl'>{`₹${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button>-</button>
                     <input value="1" type="number" />
                     <button>+</button>
                   </div>{' '}
-                  <button disabled={product.Stock < 1 ? true : false}>
+                  <button disabled={product.Stock < 1 ? true : false} className='lg:w-[150px] lg:h-[40px]'>
                     Add to Cart
                   </button>
                 </div>
@@ -98,8 +97,9 @@ const ProductDetails = () => {
                 </p>
               </div>
 
-              <div className="detailsBlock-4">
-                Description : <p>{product.description}</p>
+              <div className="detailsBlock-4 flex flex-col ">
+                <h1 className=' flex items-center justify-center mb-4 lg:justify-start'>Description</h1>
+                <p>{product.description}</p>
               </div>
 
               <button className="submitReview">Submit Review</button>
@@ -142,11 +142,11 @@ const ProductDetails = () => {
             <div className="reviews">
               {product.reviews &&
                 product.reviews.map((review) => (
-                  <ReviewCard key={review._id} review={review} />
+                  <ReviewCard  key={review._id} review={review} />
                 ))}
             </div>
           ) : (
-            <p className="noReviews">No Reviews Yet</p>
+            <p className="noReviews mb-10">No Reviews Yet</p>
           )}
         </Fragment>
       )}

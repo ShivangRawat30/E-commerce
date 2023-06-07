@@ -50,7 +50,7 @@ const Home = () => {
             </div>
           </div>
 
-          <h2 className="homeHeading">Featured Products</h2>
+          <h2 className="homeHeading text-xl w-[200px] lg:text-3xl lg:w-[400px]">Featured Products</h2>
 
           <div className="container" id="container">
             {products &&
