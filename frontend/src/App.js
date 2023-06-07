@@ -24,6 +24,7 @@ const App = () => {
         <Route extact path="/" element={<Home />} />
         <Route extact path="/product/:id" element={<ProductDetails />} />
         <Route extact path="/products" element={<ProductPage />} />
+        <Route path="/products/:keyword" element={<ProductPage />} />
         <Route extact path="/search" element={<Search />} />
         
       </Routes>
