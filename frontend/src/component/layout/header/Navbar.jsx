@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="fixed w-[100%] h-[70px] flex justify-between items-center bg-white text-black border-white-0 z-20 top-0">
       <div className="">
-        <img src={Logo} alt="Logo Image" className='w-[160px]' />
+        <img src={Logo} alt="Logo Image" className="w-[160px]" />
       </div>
 
       {/* menu */}
@@ -98,7 +98,12 @@ const Navbar = () => {
         </li>
         <li className="py-3 text-3xl">
           {' '}
-          <Link onClick={handleClick} to="/contact" smooth={true} duration={500}>
+          <Link
+            onClick={handleClick}
+            to="/contact"
+            smooth={true}
+            duration={500}
+          >
             Contact
           </Link>
         </li>
@@ -109,17 +114,17 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="mx-5 py-3">
-          <Link to="/search" smooth={true} duration={500}>
+          <Link onClick={handleClick} to="/search" smooth={true} duration={500}>
             <BsSearch size={40} className="hover:translate-y-[-1px]" />
           </Link>
         </li>
         <li className="mx-5 py-3">
-          <Link to="/cart" smooth={true} duration={500}>
+          <Link onClick={handleClick} to="/cart" smooth={true} duration={500}>
             <BsCart2 size={40} className="hover:translate-y-[-1px]" />
           </Link>
         </li>
         <li className="mx-5 py-3">
-          <Link to="/login" smooth={true} duration={500}>
+          <Link onClick={handleClick} to="/login" smooth={true} duration={500}>
             <CgProfile size={40} className="hover:translate-y-[-1px]" />
           </Link>
         </li>

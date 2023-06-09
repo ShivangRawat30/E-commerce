@@ -43,8 +43,6 @@ const ProductPage = () => {
 
   const params = useParams();
   const keyword = params.keyword;
-  console.log(products);
-  console.log(productsCount);
 
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
@@ -57,7 +55,7 @@ const ProductPage = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearErrors);
+      dispatch(clearErrors());
     }
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, error]);
@@ -80,7 +78,7 @@ const ProductPage = () => {
           </div>
 
           {keyword && (
-            <div className="filterBox  left-4 w-[150px] mb-5">
+            <div className="filterBox  left-4 w-[150px] mb-5 h-[400px]">
               <Typography className="flex justify-center items-center">
                 Price
               </Typography>

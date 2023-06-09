@@ -8,6 +8,7 @@ import ProductDetails from './component/product/ProductDetails';
 import ProductPage from './component/product/ProductPage';
 import Search from './component/product/Search'
 import Navbar from './component/layout/header/Navbar';
+import LoginSignup from "./component/user/LoginSignup"
 
 const App = () => {
   React.useEffect(() => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route extact path="/products" element={<ProductPage />} />
         <Route path="/products/:keyword" element={<ProductPage />} />
         <Route extact path="/search" element={<Search />} />
+        <Route extact path="/login" element={<LoginSignup />} />
         
       </Routes>
 
