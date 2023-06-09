@@ -1,4 +1,4 @@
-# Ecommerce Website
+# LazyCart
 
 This is a full-stack ecommerce website built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Tailwind CSS. The website provides various features such as user authentication, product listing, shopping cart, search functionality, pagination, payment integration, and more.
 
