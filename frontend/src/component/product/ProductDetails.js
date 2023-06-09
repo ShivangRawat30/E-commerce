@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   clearErrors,
   getProductDetails,
-  newReview,
+  newReview, 
 } from '../../actions/productAction';
 import ReviewCard from './ReviewCard.js';
 import Loader from '../layout/loader/Loader';
