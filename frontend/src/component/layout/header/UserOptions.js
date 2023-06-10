@@ -7,31 +7,32 @@ import PersonIcon from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { useHistory } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
-import { logout } from '../../../actions/userAction';
+// import { logout } from '../../../actions/userAction';
 import { useDispatch, useSelector } from 'react-redux';
 
 const UserOptions = ({ user }) => {
-  const { cartItems } = useSelector((state) => state.cart);
+  // const { cartItems } = useSelector((state) => state.cart);
 
   const [open, setOpen] = useState(false);
-  const history = useHistory();
+  // const history = useHistory();
   const alert = useAlert();
   const dispatch = useDispatch();
 
   const options = [
     { icon: <ListAltIcon />, name: 'Orders', func: orders },
     { icon: <PersonIcon />, name: 'Profile', func: account },
-    {
-      icon: (
-        <ShoppingCartIcon
-          style={{ color: cartItems.length > 0 ? 'tomato' : 'unset' }}
-        />
-      ),
-      name: `Cart(${cartItems.length})`,
-      func: cart,
-    },
+    // {
+    //   icon: (
+    //     <ShoppingCartIcon
+    //       style={{ color: cartItems.length > 0 ? 'tomato' : 'unset' }}
+    //     />
+    //   ),
+    //   name: `Cart(${cartItems.length})`,
+    //   func: cart,
+    // },
     { icon: <ExitToAppIcon />, name: 'Logout', func: logoutUser },
   ];
 
@@ -44,20 +45,20 @@ const UserOptions = ({ user }) => {
   }
 
   function dashboard() {
-    history.push('/admin/dashboard');
+    Navigate('/admin/dashboard');
   }
 
   function orders() {
-    history.push('/orders');
+    Navigate('/orders');
   }
   function account() {
-    history.push('/account');
+    Navigate('/account');
   }
   function cart() {
-    history.push('/cart');
+    Navigate('/cart');
   }
   function logoutUser() {
-    dispatch(logout());
+    // dispatch(logout());
     alert.success('Logout Successfully');
   }
 
@@ -71,7 +72,7 @@ const UserOptions = ({ user }) => {
         style={{ zIndex: '11' }}
         open={open}
         direction="down"
-        className="speedDial"
+        className="speedDial top-[90px] right-1 lg:right-6 "
         icon={
           <img
             className="speedDialIcon"
