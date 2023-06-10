@@ -7,13 +7,14 @@ import PersonIcon from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate} from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
-// import { logout } from '../../../actions/userAction';
+import { logout } from '../../../actions/userAction';
 import { useDispatch, useSelector } from 'react-redux';
 
 const UserOptions = ({ user }) => {
+  const navigate = useNavigate();
   // const { cartItems } = useSelector((state) => state.cart);
 
   const [open, setOpen] = useState(false);
@@ -45,20 +46,20 @@ const UserOptions = ({ user }) => {
   }
 
   function dashboard() {
-    Navigate('/admin/dashboard');
+    navigate('/admin/dashboard');
   }
 
   function orders() {
-    Navigate('/orders');
+    navigate('/orders');
   }
   function account() {
-    Navigate('/account');
+    navigate('/account');
   }
   function cart() {
-    Navigate('/cart');
+    navigate('/cart');
   }
   function logoutUser() {
-    // dispatch(logout());
+    dispatch(logout());
     alert.success('Logout Successfully');
   }
 
