@@ -42,6 +42,20 @@ const ProductDetails = () => {
     readOnly: true,
     precision: 0.5,
   };
+  const [quantity, setQuantity] = useState(1);
+  const increaseQuantity = () => {
+    if (product.Stock <= quantity) return;
+
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
+
+  const decreaseQuantity = () => {
+    if (1 >= quantity) return;
+
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
 
   return (
     <Fragment>
@@ -80,9 +94,9 @@ const ProductDetails = () => {
                 <h1 className='lg:text-3xl'>{`₹${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
-                    <button>-</button>
-                    <input value="1" type="number" />
-                    <button>+</button>
+                    <button onClick={decreaseQuantity}>-</button>
+                    <input className='w-[4vw] ' readOnly value={quantity} type="number" />
+                    <button onClick={increaseQuantity}>+</button>
                   </div>{' '}
                   <button disabled={product.Stock < 1 ? true : false} className='lg:w-[150px] lg:h-[40px]'>
                     Add to Cart
