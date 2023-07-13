@@ -5,12 +5,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   clearErrors,
   getProductDetails,
-  newReview, 
+  newReview,
 } from '../../actions/productAction';
 import ReviewCard from './ReviewCard.js';
 import Loader from '../layout/loader/Loader';
 import { useAlert } from 'react-alert';
 import MetaData from '../layout/MetaData';
+import { addItemsToCart } from '../../actions/cartAction';
 import ReactStars from 'react-rating-stars-component';
 // import {
 //   Dialog,
@@ -22,19 +23,12 @@ import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
+  const alert = useAlert();
   const dispatch = useDispatch();
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
   const params = useParams();
-
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-    dispatch(getProductDetails(params.id));
-  }, [dispatch, params.id, error, alert]);
 
   const options = {
     size: 'large',
@@ -57,6 +51,18 @@ const ProductDetails = () => {
     setQuantity(qty);
   };
 
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(params.id, quantity));
+    alert.success('Items Added To Cart');
+  };
+
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+    dispatch(getProductDetails(params.id));
+  }, [dispatch, params.id, error, alert]);
   return (
     <Fragment>
       {loading ? (
@@ -91,28 +97,39 @@ const ProductDetails = () => {
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1 className='lg:text-3xl'>{`₹${product.price}`}</h1>
+                <h1 className="lg:text-3xl">{`₹${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
-                    <input className='w-[4vw] ' readOnly value={quantity} type="number" />
+                    <input
+                      className="w-[4vw]"
+                      readOnly
+                      value={quantity}
+                      type="number"
+                    />
                     <button onClick={increaseQuantity}>+</button>
-                  </div>{' '}
-                  <button disabled={product.Stock < 1 ? true : false} className='lg:w-[150px] lg:h-[40px]'>
+                  </div>
+                  <button
+                    disabled={product.Stock < 1 ? true : false}
+                    className="lg:w-[150px] lg:h-[40px]"
+                    onClick={addToCartHandler}
+                  >
                     Add to Cart
                   </button>
                 </div>
 
                 <p>
                   Status:{' '}
-                  <b className={product.Stock < 1 ? 'redColor' : 'greenColor'}>
+                  <b className={product.Stock < 1 ? 'text-red-500' : 'text-green-500'}>
                     {product.Stock < 1 ? 'OutOfStock' : 'InStock'}
                   </b>
                 </p>
               </div>
 
               <div className="detailsBlock-4 flex flex-col ">
-                <h1 className=' flex items-center justify-center mb-4 lg:justify-start'>Description</h1>
+                <h1 className=" flex items-center justify-center mb-4 lg:justify-start">
+                  Description
+                </h1>
                 <p>{product.description}</p>
               </div>
 
@@ -156,7 +173,7 @@ const ProductDetails = () => {
             <div className="reviews">
               {product.reviews &&
                 product.reviews.map((review) => (
-                  <ReviewCard  key={review._id} review={review} />
+                  <ReviewCard key={review._id} review={review} />
                 ))}
             </div>
           ) : (

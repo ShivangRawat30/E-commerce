@@ -157,7 +157,7 @@ const LoginSignup = () => {
                   onChange={registerDataChange}
                 />
               </div>
-              <div className="signUpEmail">
+              <div className="signUpEmail"> 
                 <MailOutlineIcon />
                 <input
                   type="email"
