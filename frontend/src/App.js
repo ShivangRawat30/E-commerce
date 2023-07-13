@@ -19,7 +19,8 @@ import UpdateProfile from './component/user/UpdateProfile.js';
 import UpdatePassword from './component/user/UpdatePassword.js';
 import ForgotPassword from './component/user/ForgotPassword.js';
 import ResetPassword from './component/user/ResetPassword.js';
-import Cart from './component/Cart/Cart.js'
+import Cart from './component/Cart/Cart.js';
+import Shipping from './component/Cart/Shipping';
 
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -38,6 +39,7 @@ const App = () => {
       {isAuthenticated && <UserOptions user={user} />}
       <ProtectedRoute exact path="/account" element={<Profile />} />
       <ProtectedRoute exact path="/me/update" element={<UpdateProfile />} />
+      <ProtectedRoute exact path="/login/shipping" element={<Shipping />} />
       <ProtectedRoute
         exact
         path="/password/update"
@@ -51,7 +53,11 @@ const App = () => {
         <Route extact path="/search" element={<Search />} />
         <Route extact path="/login" element={<LoginSignup />} />
         <Route extact path="/password/forgot" element={<ForgotPassword />} />
-        <Route extact path="/password/reset/:token" element={<ResetPassword />} />
+        <Route
+          extact
+          path="/password/reset/:token"
+          element={<ResetPassword />}
+        />
         <Route extact path="/cart" element={<Cart />} />
       </Routes>
 

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, login, register } from '../../actions/userAction';
 import { useAlert } from 'react-alert';
 
-const LoginSignup = () => {
+const LoginSignup = (location) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -49,7 +49,7 @@ const LoginSignup = () => {
     myForm.set('email', email);
     myForm.set('password', password);
     myForm.set('avatar', avatar);
-    dispatch(register(myForm))
+    dispatch(register(myForm));
   };
 
   const registerDataChange = (e) => {
@@ -67,15 +67,20 @@ const LoginSignup = () => {
       setUser({ ...user, [e.target.name]: e.target.value });
     }
   };
+
+  const redirect = window.location.search
+    ? window.location.search.split('=')[1]
+    : '/account';
+
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
-      navigate('/account');
+      navigate(redirect);
     }
-  }, [dispatch, error, alert, navigate, isAuthenticated]);
+  }, [dispatch, error, alert, navigate, isAuthenticated, redirect]);
 
   const switchTabs = (e, tab) => {
     if (tab === 'login') {
@@ -157,7 +162,7 @@ const LoginSignup = () => {
                   onChange={registerDataChange}
                 />
               </div>
-              <div className="signUpEmail"> 
+              <div className="signUpEmail">
                 <MailOutlineIcon />
                 <input
                   type="email"
