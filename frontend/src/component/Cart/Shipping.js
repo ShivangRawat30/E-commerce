@@ -43,7 +43,7 @@ const Shipping = () => {
     <Fragment>
       <MetaData title="Shipping Details" />
 
-      <div className="mt-[80px]">
+      <div className="mt-[90px]">
         <CheckoutSteps activeStep={0} />
       </div>
 

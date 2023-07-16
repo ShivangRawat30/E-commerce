@@ -53,7 +53,6 @@ const App = () => {
       <ProtectedRoute exact path="/account" element={<Profile />} />
       <ProtectedRoute exact path="/me/update" element={<UpdateProfile />} />
       <ProtectedRoute exact path="/login/shipping" element={<Shipping />} />
-      <ProtectedRoute exact path="/login/shipping" element={<Shipping />} />
       <ProtectedRoute exact path="/order/confirm" element={<Confirm />} />
       <Elements stripe={loadStripe(stripeApiKey)}>
         <ProtectedRoute exact path="/process/payment" element={<Payment />} />

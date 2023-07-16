@@ -85,10 +85,10 @@ const Payment = () => {
         alert.error(result.error.message);
       } else {
         if (result.paymentIntent.status === 'succeeded') {
-        //   order.paymentInfo = {
-        //     id: result.paymentIntent.id,
-        //     status: result.paymentIntent.status,
-        //   };
+          //   order.paymentInfo = {
+          //     id: result.paymentIntent.id,
+          //     status: result.paymentIntent.status,
+          //   };
 
           //   dispatch(createOrder(order));
 
@@ -105,7 +105,7 @@ const Payment = () => {
   return (
     <Fragment>
       <MetaData title="Payment" />
-      <div className="mt-[80px]">
+      <div className="mt-[90px]">
         <CheckoutSteps activeStep={2} />
       </div>
       <div className="paymentContainer">
