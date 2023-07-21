@@ -67,7 +67,7 @@ const ProductPage = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="PRODUCTS -- ECOMMERCE" />
+          <MetaData title="PRODUCTS -- LazyCart" />
           <h2 className="productsHeading lg:mt-[50px] mt-[60px]">Products</h2>
 
           <div className="products left-[1100px] min-h-[0vh]">
@@ -91,7 +91,7 @@ const ProductPage = () => {
                 max={25000}
                 className="w-[200px]"
               />
-              <Typography className="flex justify-center items-center mb-5">
+              <Typography className="flex justify-center items-center mb-5 ">
                 Categories
               </Typography>
               <ul className="categoryBox flex flex-col justify-center items-center">

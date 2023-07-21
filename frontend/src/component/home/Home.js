@@ -35,13 +35,13 @@ const Home = () => {
               <h1 className="font-bold lg:text-8xl text-4xl lg:my-[20px] my-1">
                 LAZY CART
               </h1>
-              <p className="lg:my-[20px] lg:text-2xl w-50% text-xs my-2">
+              <p className="mt-[20px] lg:my-[20px] lg:text-2xl w-50% text-sm my-2">
                 Unleash your shopping desires with our exceptional products and
                 unbeatable deals, making every purchase a memorable experience.
               </p>
 
               <Link to="container" smooth={true} duration={500}>
-                <button className="border-[1px] border-solid px-[20px] my-2 text-xs lg:text-lg lg:px-5 py-2 lg:w-[200px] flex flex-col items-center justify-between hover:bg-[#ff6347] cursor:pointer">
+                <button className=" mt-[50px] border-[1px] border-solid px-[20px] my-2 text-xs lg:text-lg lg:px-5 py-2 lg:w-[200px] flex flex-col items-center justify-between hover:bg-[#ff6347] cursor:pointer">
                   Start Shopping <CgMouse className="items-center" />
                 </button>
               </Link>
