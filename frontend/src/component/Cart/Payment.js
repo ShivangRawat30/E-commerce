@@ -55,7 +55,7 @@ const Payment = () => {
         },
       };
       const { data } = await axios.post(
-        '/api/v1/payment/process',
+        'https://lazy-nu.vercel.app/api/v1/payment/process',
         paymentData,
         config
       );
