@@ -1,0 +1,48 @@
+.contactContainer {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: white;
+  }
+  
+  .mailBtn {
+    text-decoration: none;
+    transform: translateX(-100vw);
+    animation: mailBtnAnimation 2s forwards;
+    
+  }
+  .linkedInBtn {
+      text-decoration: none;
+      transform: translateX(-100vw);
+      animation: mailBtnAnimation 4s forwards;
+    }
+    .twitterBtn {
+      text-decoration: none;
+      transform: translateX(-100vw);
+      animation: mailBtnAnimation 6s forwards;
+    }
+  
+  .mailBtn > button {
+    font-size: 2vmax;
+    cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
+    padding: 2vmax;
+    text-decoration: #f2a60c;
+  }
+  .linkedInBtn > button {
+   font-size: 2vmax;
+   cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
+   padding: 2vmax;
+ }
+   .twitterBtn > button {
+    font-size: 2vmax;
+    cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
+    padding: 2vmax;
+  }
+  
+  @keyframes mailBtnAnimation {
+    to {
+      transform: translateX(0);
+    }
+  }

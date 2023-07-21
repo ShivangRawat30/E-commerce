@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from './component/layout/header/Header';
 import Footer from './component/layout/footer/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WebFont from 'webfontloader';
@@ -28,14 +27,16 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import OrderSuccess from './component/Cart/OrderSuccess.js';
 import MyOrders from './component/Orders/MyOrders.js';
-import OrderDetails from './component/Orders/OrderDetails.js'
+import OrderDetails from './component/Orders/OrderDetails.js';
+import Contact from './component/layout/Contact/Contact';
+import About from './component/layout/About/About.js';
 
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [stripeApiKey, setStripeApiKey] = useState('');
 
   async function getStripeApiKey() {
-    const {data} = await axios.get('/api/v1/stripeApiKey');
+    const { data } = await axios.get('/api/v1/stripeApiKey');
 
     setStripeApiKey(data.stripeApiKey);
   }
@@ -59,7 +60,7 @@ const App = () => {
       <ProtectedRoute exact path="/order/confirm" element={<Confirm />} />
       <ProtectedRoute exact path="/success" element={<OrderSuccess />} />
       <ProtectedRoute exact path="/orders" element={<MyOrders />} />
-      <ProtectedRoute exact path="/order/:id" element={<OrderDetails />} />
+      {/* <ProtectedRoute exact path="/order/:id" element={<OrderDetails />} /> */}
       <Elements stripe={loadStripe(stripeApiKey)}>
         <ProtectedRoute exact path="/process/payment" element={<Payment />} />
       </Elements>
@@ -76,6 +77,9 @@ const App = () => {
         <Route extact path="/search" element={<Search />} />
         <Route extact path="/login" element={<LoginSignup />} />
         <Route extact path="/password/forgot" element={<ForgotPassword />} />
+
+        <Route exact path="/Contact" element={<Contact />} />
+        <Route exact path="/about" element={<About />} />
         <Route
           extact
           path="/password/reset/:token"

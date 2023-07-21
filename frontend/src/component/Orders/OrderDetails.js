@@ -14,7 +14,6 @@ const OrderDetails = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const params = useParams();
-  console.log(error);
 
   useEffect(() => {
     if (error) {
@@ -31,7 +30,7 @@ const OrderDetails = () => {
       ) : (
         <Fragment>
           <MetaData title="Order Details" />
-          <div className="orderDetailsPage">
+          <div className="orderDetailsPage mt-[40px]">
             <div className="orderDetailsContainer">
               <Typography component="h1">
                 Order #{order && order._id}
@@ -63,8 +62,8 @@ const OrderDetails = () => {
                     className={
                       order.paymentInfo &&
                       order.paymentInfo.status === 'succeeded'
-                        ? 'greenColor'
-                        : 'redColor'
+                        ? 'text-green-500'
+                        : 'text-red-500'
                     }
                   >
                     {order.paymentInfo &&
@@ -86,8 +85,8 @@ const OrderDetails = () => {
                   <p
                     className={
                       order.orderStatus && order.orderStatus === 'Delivered'
-                        ? 'greenColor'
-                        : 'redColor'
+                      ? 'text-green-500'
+                      : 'text-red-500'
                     }
                   >
                     {order.orderStatus && order.orderStatus}

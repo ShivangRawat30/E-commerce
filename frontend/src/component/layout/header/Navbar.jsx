@@ -37,12 +37,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="mx-10 text-xl font-roboto hover:translate-y-[-1px]">
-          <Link to="skills" smooth={true} duration={500}>
+          <Link to="/Contact" smooth={true} duration={500}>
             Contact
           </Link>
         </li>
         <li className="mx-10 text-xl font-roboto hover:translate-y-[-1px]">
-          <Link to="work" smooth={true} duration={500}>
+          <Link to="/About" smooth={true} duration={500}>
             About
           </Link>
         </li>
