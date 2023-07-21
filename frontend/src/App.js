@@ -36,7 +36,7 @@ const App = () => {
   const [stripeApiKey, setStripeApiKey] = useState('');
 
   async function getStripeApiKey() {
-    const { data } = await axios.get('https://lazy-nu.vercel.app/api/v1/stripeApiKey');
+    const { data } = await axios.get('/api/v1/stripeApiKey');
 
     setStripeApiKey(data.stripeApiKey);
   }
