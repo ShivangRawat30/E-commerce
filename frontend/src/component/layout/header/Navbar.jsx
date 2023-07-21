@@ -19,7 +19,7 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
 
   return (
-    <div className="fixed w-[100%] h-[70px] flex justify-between items-center bg-white text-black border-white-0 z-20 top-0 ">
+    <div className="fixed w-[100%] h-[70px] flex justify-between items-center bg-[#edecec] text-black border-white-0 z-20 top-0 ">
       <div className="">
         <img src={Logo} alt="Logo Image" className="w-[160px]" />
       </div>
@@ -77,7 +77,7 @@ const Navbar = () => {
         className={
           !nav
             ? 'hidden'
-            : 'absolute top-0 left-0 w-full h-screen bg-white text-black flex flex-col justify-center items-center '
+            : 'absolute top-0 left-0 w-full h-screen bg-[#edecec] text-black flex flex-col justify-center items-center transition-smooth'
         }
       >
         <li className="py-3 text-3xl">

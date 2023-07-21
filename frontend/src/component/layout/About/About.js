@@ -1,11 +1,12 @@
-import React from "react";
-import "./aboutSection.css";
-import { Button, Typography, Avatar } from "@material-ui/core";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import React from 'react';
+import './aboutSection.css';
+import { Button, Typography, Avatar } from '@material-ui/core';
+import LinkIcon from '@mui/icons-material/Link';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import photo from '../../../Photo.png';
 const About = () => {
   const visitInstagram = () => {
-    window.location = "https://instagram.com/meabhisingh";
+    window.location = 'https://www.instagram.com/shivangrawat__/';
   };
   return (
     <div className="aboutSection">
@@ -17,30 +18,33 @@ const About = () => {
         <div>
           <div>
             <Avatar
-              style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
-              src="https://res.cloudinary.com/tripleayt/image/upload/v1631555947/products/jpyibarlaxawvcvqjv5b.png"
+              style={{ width: '10vmax', height: '10vmax', margin: '2vmax 0' }}
+              src={photo}
               alt="Founder"
             />
-            <Typography>Abhishek Singh</Typography>
+            <Typography>Shivang Rawat</Typography>
             <Button onClick={visitInstagram} color="primary">
               Visit Instagram
             </Button>
             <span>
-              This is a sample wesbite made by @meabhisingh. Only with the
-              purpose to teach MERN Stack on the channel 6 Pack Programmer
+              I have a passion for creating high-quality code, and I'm dedicated
+              to writing clean, efficient, and maintainable code that can easily
+              be adapted and expanded upon in the future. my knowledge of
+              various npm libraries and tools, enables me to integrate various
+              features and functionalities into the applications with ease.
             </span>
           </div>
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
             <a
-              href="https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw"
+              href="https://portfolio-weld-three-33.vercel.app/"
               target="blank"
             >
-              <YouTubeIcon className="youtubeSvgIcon" />
+              <LinkIcon className="youtubeSvgIcon" />
             </a>
 
-            <a href="https://instagram.com/meabhisingh" target="blank">
-              <InstagramIcon className="instagramSvgIcon" />
+            <a href="https://www.linkedin.com/in/shivangrawat30/h" target="blank">
+              <LinkedInIcon className="instagramSvgIcon" />
             </a>
           </div>
         </div>

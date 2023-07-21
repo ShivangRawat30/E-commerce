@@ -69,7 +69,7 @@ const ProductDetails = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={`${product.name} -- ECOMMERCE`} />
+          <MetaData title={`${product.name} -- LazyCart`} />
           <div className="ProductDetails mt-[70px]">
             <div>
               <Carousel className="mx-8">
@@ -99,10 +99,10 @@ const ProductDetails = () => {
               <div className="detailsBlock-3">
                 <h1 className="lg:text-3xl">{`₹${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
-                  <div className="detailsBlock-3-1-1">
+                  <div className="detailsBlock-3-1-1 flex ">
                     <button onClick={decreaseQuantity}>-</button>
                     <input
-                      className="w-[4vw]"
+                      className="w-[3vw]"
                       readOnly
                       value={quantity}
                       type="number"

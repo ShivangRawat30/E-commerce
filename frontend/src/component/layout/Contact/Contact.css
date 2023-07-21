@@ -28,17 +28,19 @@
     font-size: 2vmax;
     cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
     padding: 2vmax;
-    text-decoration: #f2a60c;
+    color: #F2A60C    ;
   }
   .linkedInBtn > button {
    font-size: 2vmax;
    cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
    padding: 2vmax;
+   color: #0A66C2;
  }
    .twitterBtn > button {
     font-size: 2vmax;
     cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
     padding: 2vmax;
+    color: #00acee;
   }
   
   @keyframes mailBtnAnimation {

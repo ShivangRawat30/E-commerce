@@ -45,7 +45,7 @@
   @media screen and (max-width: 600px) {
     .searchBox > input[type="text"] {
       width: 100%;
-      font: 300 4vw cursive;
+      font-size: 300 4vw;
       height: 10%;
     }
   
