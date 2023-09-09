@@ -60,10 +60,10 @@ const App = () => {
       <ProtectedRoute exact path="/order/confirm" element={<Confirm />} />
       <ProtectedRoute exact path="/success" element={<OrderSuccess />} />
       <ProtectedRoute exact path="/orders" element={<MyOrders />} />
-      {/* <ProtectedRoute exact path="/order/:id" element={<OrderDetails />} /> */}
-      <Elements stripe={loadStripe(stripeApiKey)}>
+      <ProtectedRoute exact path="/order/:id" element={<OrderDetails />} />
+      {/* <Elements stripe={loadStripe(stripeApiKey)}>
         <ProtectedRoute exact path="/process/payment" element={<Payment />} />
-      </Elements>
+      </Elements> */}
       <ProtectedRoute
         exact
         path="/password/update"

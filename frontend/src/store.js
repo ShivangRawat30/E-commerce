@@ -1,52 +1,24 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-
+import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {
-  productReducer,
-  productDetailsReducer,
-} from './reducers/ProductReducer';
-import {
-  forgotPasswordReducer,
-  profileReducer,
-  userReducer,
-} from './reducers/userReducer';
-import { cartReducer } from './reducers/cartReducer';
-import {
-  myOrdersReducer,
-  newOrderReducer,
-  orderDetailsReducer,
-} from './reducers/orderReducer';
+import orderReducer from './Slices/orderSlice'; // Import your orderSlice
+import productReducer from './Slices/productSlice'; // Import your productSlice
+import userReducer from './Slices/userSlice'; // Import your userSlice
+import cartReducer from './Slices/cartSlice'; // Import your cartSlice
 
-const reducer = combineReducers({
+// Create a root reducer by combining the reducers from your slices
+const rootReducer = {
+  order: orderReducer,
   products: productReducer,
-  productDetails: productDetailsReducer,
   user: userReducer,
-  profile: profileReducer,
-  forgotPassword: forgotPasswordReducer,
   cart: cartReducer,
-  newOrder: newOrderReducer,
-  myOrders: myOrdersReducer,
-  orderDetails: orderDetailsReducer,
-});
-
-let initalState = {
-  cart: {
-    cartItems: localStorage.getItem('cartItems')
-      ? JSON.parse(localStorage.getItem('cartItems'))
-      : [],
-    shippingInfo: localStorage.getItem('shippingInfo')
-      ? JSON.parse(localStorage.getItem('shippingInfo'))
-      : [],
-  },
 };
 
-const middleware = [thunk];
-
-const store = createStore(
-  reducer,
-  initalState,
-  composeWithDevTools(applyMiddleware(...middleware))
-);
+// Create the Redux store
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: [thunk],
+  devTools: process.env.NODE_ENV !== 'production',
+});
 
 export default store;

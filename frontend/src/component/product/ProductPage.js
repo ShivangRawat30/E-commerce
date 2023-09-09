@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import './ProductPage.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearErrors, getProduct } from '../../actions/productAction';
+import { fetchProducts } from '../../Slices/productSlice';
 import Loader from '../layout/loader/Loader';
 import ProductCard from '../home/product';
 import MetaData from '../layout/MetaData';
@@ -57,7 +58,7 @@ const ProductPage = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword, currentPage, price, category, ratings));
+    dispatch(fetchProducts({keyword, currentPage, price, category, ratings}));
   }, [dispatch, keyword, currentPage, price, category, ratings, error]);
 
   // let count = filteredProductsCount
