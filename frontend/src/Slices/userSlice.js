@@ -11,21 +11,25 @@ const initialState = {
 };
 
 // Create an async thunk for user login
-export const loginUser = createAsyncThunk('user/login', async (userData, { rejectWithValue }) => {
+export const loginUser = createAsyncThunk('user/login', async ({email, password}, { rejectWithValue }) => {
   try {
+    console.log(email);
+    console.log(password);
     const config = { headers: { 'Content-Type': 'application/json' } };
-    const { data } = await axios.post(`/api/v1/login`, userData, config);
+    const { data } = await axios.post(`https://lazy-nu.vercel.app/api/v1/login`, {email,password}, config);
     return data.user;
   } catch (error) {
+    console.log(error.response.data);
     return rejectWithValue(error.response.data.message);
   }
 });
 
 // Create an async thunk for user registration
-export const registerUser = createAsyncThunk('user/register', async (userData, { rejectWithValue }) => {
+export const registerUser = createAsyncThunk('user/register', async ({userData}, { rejectWithValue }) => {
   try {
+    console.log(userData);
     const config = { headers: { 'Content-Type': 'multipart/form-data' } };
-    const { data } = await axios.post(`/api/v1/register`, userData, config);
+    const { data } = await axios.post(`https://lazy-nu.vercel.app/api/v1/register`, userData, config);
     return data.user;
   } catch (error) {
     return rejectWithValue(error.response.data.message);
@@ -33,7 +37,7 @@ export const registerUser = createAsyncThunk('user/register', async (userData, {
 });
 
 // Create an async thunk for loading user
-export const loadUser = createAsyncThunk('user/loadUser', async (_, { rejectWithValue }) => {
+export const loadUser = createAsyncThunk('user/loadUser', async ({}, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(`/api/v1/me`);
     return data.user;

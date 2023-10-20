@@ -2,11 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import './ProductDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  clearErrors,
-  getProductDetails,
-  newReview,
-} from '../../actions/productAction';
+import { fetchProductDetails,clearErrors } from '../../Slices/productSlice';
 import ReviewCard from './ReviewCard.js';
 import Loader from '../layout/loader/Loader';
 import { useAlert } from 'react-alert';
@@ -26,7 +22,7 @@ const ProductDetails = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const { product, loading, error } = useSelector(
-    (state) => state.productDetails
+    (state) => state.products
   );
   const params = useParams();
 
@@ -61,7 +57,7 @@ const ProductDetails = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProductDetails(params.id));
+    dispatch(fetchProductDetails(params.id));
   }, [dispatch, params.id, error, alert]);
   return (
     <Fragment>

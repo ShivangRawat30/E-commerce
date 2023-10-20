@@ -9,7 +9,7 @@ import Search from './component/product/Search';
 import Navbar from './component/layout/header/Navbar';
 import LoginSignup from './component/user/LoginSignup';
 import store from './store';
-import { loadUser } from './actions/userAction';
+import { loadUser } from './Slices/userSlice';
 import UserOptions from './component/layout/header/UserOptions';
 import { useSelector } from 'react-redux';
 import Profile from './component/user/Profile.js';
@@ -47,7 +47,7 @@ const App = () => {
       },
     });
     store.dispatch(loadUser());
-    getStripeApiKey();
+    // getStripeApiKey();
   }, []);
 
   return (

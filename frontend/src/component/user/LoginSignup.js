@@ -6,10 +6,10 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import FaceIcon from '@material-ui/icons/Face';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, login, register } from '../../actions/userAction';
+import {loginUser,registerUser,clearUserErrors} from '../../Slices/userSlice';
 import { useAlert } from 'react-alert';
 
-const LoginSignup = (location) => {
+const LoginSignup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -37,7 +37,9 @@ const LoginSignup = (location) => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(loginEmail, loginPassword));
+    console.log(loginEmail);
+    console.log(loginPassword);
+    dispatch(loginUser({email:loginEmail, password:loginPassword}));
   };
 
   const registerSubmit = (e) => {
@@ -49,7 +51,8 @@ const LoginSignup = (location) => {
     myForm.set('email', email);
     myForm.set('password', password);
     myForm.set('avatar', avatar);
-    dispatch(register(myForm));
+    console.log(myForm);
+    dispatch(registerUser({userData:myForm}));
   };
 
   const registerDataChange = (e) => {
@@ -75,7 +78,7 @@ const LoginSignup = (location) => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearErrors());
+      dispatch(clearUserErrors());
     }
     if (isAuthenticated) {
       navigate(redirect);

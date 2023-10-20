@@ -3,11 +3,10 @@ import { CgMouse } from 'react-icons/cg';
 import './Home.css';
 import Product from './product.js';
 import MetaData from '../layout/MetaData';
-import { getProduct } from '../../actions/productAction';
+import { fetchProducts,clearErrors } from '../../Slices/productSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../layout/loader/Loader';
 import { useAlert } from 'react-alert';
-import { clearErrors } from '../../actions/productAction';
 import { Link } from 'react-scroll';
 
 const Home = () => {
@@ -20,7 +19,7 @@ const Home = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct());
+    dispatch(fetchProducts({}));
   }, [dispatch, error, alert]);
   return (
     <>
