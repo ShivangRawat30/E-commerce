@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import MetaData from '../layout/MetaData';
 import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
-import { getOrderDetails, clearErrors } from '../../actions/orderAction';
+import { fetchOrderDetails,clearErrors } from '../../Slices/orderSlice';
 import Loader from '../layout/loader/Loader';
 import { useAlert } from 'react-alert';
 import { useParams } from 'react-router-dom';
@@ -21,7 +21,7 @@ const OrderDetails = () => {
       dispatch(clearErrors());
     }
 
-    dispatch(getOrderDetails(params.id));
+    dispatch(fetchOrderDetails(params.id));
   }, [dispatch, alert, error, params.id]);
   return (
     <Fragment>

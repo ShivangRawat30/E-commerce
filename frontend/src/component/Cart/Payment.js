@@ -17,7 +17,7 @@ import CreditCardIcon from '@material-ui/icons/CreditCard';
 import EventIcon from '@material-ui/icons/Event';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import { useNavigate } from 'react-router-dom';
-import { createOrder, clearErrors } from '../../actions/orderAction';
+import { createOrder,clearErrors } from '../../Slices/orderSlice';
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'));

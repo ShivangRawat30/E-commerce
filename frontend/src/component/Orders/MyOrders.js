@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import "./myOrders.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, myOrders } from "../../actions/orderAction";
+import { clearErrors, fetchMyOrders } from "../../Slices/orderSlice";
 import Loader from "../layout/loader/Loader";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
@@ -82,7 +82,7 @@ const MyOrders = () => {
       dispatch(clearErrors());
     }
 
-    dispatch(myOrders());
+    dispatch(fetchMyOrders());
   }, [dispatch, alert, error]);
 
   return (

@@ -4,7 +4,7 @@ import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import CartItemCard from './CartItemCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemsToCart, removeItemsFromCart } from '../../actions/cartAction';
+import { addToCart,removeCartItem } from '../../Slices/cartSlice';
 import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -17,7 +17,7 @@ const Cart = () => {
     if (stock <= quantity) {
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+    dispatch(addToCart(id, newQty));
   };
 
   const decreaseQuantity = (id, quantity) => {
@@ -25,11 +25,11 @@ const Cart = () => {
     if (1 >= quantity) {
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+    dispatch(addToCart(id, newQty));
   };
 
   const deleteCartItems = (id) => {
-    dispatch(removeItemsFromCart(id));
+    dispatch(removeCartItem(id));
   };
   const checkoutHandler = () => {
     navigate(`/login?redirect=shipping`);

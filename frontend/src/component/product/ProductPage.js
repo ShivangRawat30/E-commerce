@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import './ProductPage.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearErrors, getProduct } from '../../actions/productAction';
-import { fetchProducts } from '../../Slices/productSlice';
+import { fetchProducts,clearErrors } from '../../Slices/productSlice';
 import Loader from '../layout/loader/Loader';
 import ProductCard from '../home/product';
 import MetaData from '../layout/MetaData';

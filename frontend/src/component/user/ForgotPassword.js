@@ -3,7 +3,7 @@ import './ForgotPassword.css';
 import Loader from '../layout/loader/Loader';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, forgotPassword } from '../../actions/userAction';
+import { forgotPasswordUser, clearUserErrors } from '../../Slices/userSlice';
 import { useAlert } from 'react-alert';
 import MetaData from '../layout/MetaData';
 
@@ -22,12 +22,12 @@ const ForgotPassword = () => {
     const myForm = new FormData();
 
     myForm.set('email', email);
-    dispatch(forgotPassword(myForm));
+    dispatch(forgotPasswordUser(myForm));
   };
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearErrors());
+      dispatch(clearUserErrors());
     }
 
     if (message) {

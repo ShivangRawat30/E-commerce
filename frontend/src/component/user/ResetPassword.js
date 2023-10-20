@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import "./ResetPassword.css";
 import Loader from "../layout/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, resetPassword } from "../../actions/userAction";
+import { resetPasswordUser,clearUserErrors } from "../../Slices/userSlice";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
@@ -28,13 +28,13 @@ const ResetPassword = ({ match }) => {
     myForm.set("password", password);
     myForm.set("confirmPassword", confirmPassword);
 
-    dispatch(resetPassword(match.params.token, myForm));
+    dispatch(resetPasswordUser(match.params.token, myForm));
   };
 
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearErrors());
+      dispatch(clearUserErrors());
     }
 
     if (success) {

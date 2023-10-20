@@ -4,9 +4,8 @@ import Loader from '../layout/loader/Loader';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import FaceIcon from '@material-ui/icons/Face';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, updateProfile, loadUser } from '../../actions/userAction';
+import { updateProfileUser,loadUser,clearUserErrors } from '../../Slices/userSlice';
 import { useAlert } from 'react-alert';
-import { UPDATE_PROFILE_RESET } from '../../constants/userConstants';
 import MetaData from '../layout/MetaData';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +15,9 @@ const UpdateProfile = () => {
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.user);
-  const { error, isUpdated, loading } = useSelector((state) => state.profile);
+  const { error, loading, isUpdated } = useSelector(
+    (state) => state.user
+  );
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ const UpdateProfile = () => {
     myForm.set('name', name);
     myForm.set('email', email);
     myForm.set('avatar', avatar);
-    dispatch(updateProfile(myForm));
+    dispatch(updateProfileUser({myForm}));
   };
 
   const updateProfileDataChange = (e) => {
@@ -56,7 +57,7 @@ const UpdateProfile = () => {
 
     if (error) {
       alert.error(error);
-      dispatch(clearErrors());
+      dispatch(clearUserErrors());
     }
 
     if (isUpdated) {
@@ -64,10 +65,6 @@ const UpdateProfile = () => {
       dispatch(loadUser());
 
       navigate('/account');
-
-      dispatch({
-        type: UPDATE_PROFILE_RESET,
-      });
     }
   }, [dispatch, error, alert, navigate, user, isUpdated]);
   return (

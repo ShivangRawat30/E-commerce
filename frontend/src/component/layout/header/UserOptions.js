@@ -10,7 +10,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Navigate, useNavigate} from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
-import { logout } from '../../../actions/userAction';
+import { logoutUser } from '../../../Slices/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const UserOptions = ({ user }) => {
@@ -59,7 +59,7 @@ const UserOptions = ({ user }) => {
     navigate('/cart');
   }
   function logoutUser() {
-    dispatch(logout());
+    dispatch(logoutUser());
     alert.success('Logout Successfully');
   }
 

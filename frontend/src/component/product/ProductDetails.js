@@ -7,7 +7,7 @@ import ReviewCard from './ReviewCard.js';
 import Loader from '../layout/loader/Loader';
 import { useAlert } from 'react-alert';
 import MetaData from '../layout/MetaData';
-import { addItemsToCart } from '../../actions/cartAction';
+import { addToCart } from '../../Slices/cartSlice';
 import ReactStars from 'react-rating-stars-component';
 // import {
 //   Dialog,
@@ -48,7 +48,7 @@ const ProductDetails = () => {
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(params.id, quantity));
+    dispatch(addToCart(params.id, quantity));
     alert.success('Items Added To Cart');
   };
 

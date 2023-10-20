@@ -2,9 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import './UpdatePassword.css';
 import Loader from '../layout/loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, updatePassword } from '../../actions/userAction';
+import { updatePasswordUser, clearUserErrors } from '../../Slices/userSlice';
 import { useAlert } from 'react-alert';
-import { UPDATE_PASSWORD_RESET } from '../../constants/userConstants';
 import MetaData from '../layout/MetaData';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import LockIcon from '@material-ui/icons/Lock';
@@ -31,12 +30,12 @@ const UpdatePassword = () => {
     myForm.set('newPassword', newPassword);
     myForm.set('confirmPassword', confirmPassword);
 
-    dispatch(updatePassword(myForm));
+    dispatch(updatePasswordUser(myForm));
   };
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearErrors());
+      dispatch(clearUserErrors());
     }
 
     if (isUpdated) {
@@ -45,7 +44,7 @@ const UpdatePassword = () => {
       navigate('/account');
 
       dispatch({
-        type: UPDATE_PASSWORD_RESET,
+        type: updatePasswordUser,
       });
     }
   }, [dispatch, error, alert, navigate, isUpdated]);
